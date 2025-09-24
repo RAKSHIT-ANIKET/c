@@ -1,4 +1,5 @@
 {
     "editor.suggestOnTriggerCharacters": false,
-    "terminal.integrated.suggest.suggestOnTriggerCharacters": false
+    "terminal.integrated.suggest.suggestOnTriggerCharacters": false,
+    "C_Cpp.errorSquiggles": "disabled"
 }
