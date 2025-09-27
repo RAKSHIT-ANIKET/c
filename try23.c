@@ -1,10 +1,18 @@
 #include <stdio.h>
-void check(int Ones, int Tens);
+void check(int Tens, int Ones);
 void ONES(int var);
-void check(int Ones, int Tens)
+void logic(int num, int Ones,int Tens,int Hundread,int Thousand,int TenThousand);
+//For 2 digit number logic
+void check(int Tens, int Ones)
 {   
     int numT=10*Tens + Ones;
-    if (numT<20 && numT>10)
+    //For Num=(1-10)
+    if (numT<11)
+    {
+        ONES(numT);
+    }
+    //For Num=(11-19)
+    else if (numT<20 && numT>10)
     {
         switch (numT)
         {
@@ -39,10 +47,7 @@ void check(int Ones, int Tens)
             break;
         }
     }
-    else if (numT<11)
-    {
-        ONES(numT);
-    }
+    ////For Num=(20-99)
     else if (numT>19)
     {
         switch (Tens)
@@ -85,6 +90,7 @@ void check(int Ones, int Tens)
         }        
     }
 }
+//For 1 digit number Logic
 void ONES(int var)
 {
     switch (var)
@@ -124,11 +130,40 @@ void ONES(int var)
            break;
        }
     }
-
-int main()
+//For Logic
+void logic(int num, int Ones,int Tens,int Hundread,int Thousand,int TenThousand)
 {
-    int num,Ones,Tens,Hundread,Thousand,TenThousand;
-    printf("Enter any Five digit number: ");
+    if (num<100) check(Tens, Ones);
+    else if (num<1000) 
+    {
+        ONES(Hundread);
+        printf(" Hundred ");
+        check(Tens, Ones);
+    }
+    else if (num<100000) //28011  28911
+    {
+        if (Hundread==0)
+        {
+            check(TenThousand, Thousand);
+            printf(" Thousand ");
+            check(Tens, Ones);
+        }
+        else 
+        {
+            check(TenThousand, Thousand);
+            printf(" Thousand ");
+            ONES(Hundread);
+            printf(" Hundred ");
+            check(Tens, Ones);
+        }
+
+    }
+}
+
+void RPL()
+{
+    int num=0,Ones=0,Tens=0,Hundread=0,Thousand=0,TenThousand=0;
+    printf("Enter any Number upto 5 digit: ");
     scanf("%d", &num);
     //13013
     Ones=num%10;
@@ -142,23 +177,19 @@ int main()
     TenThousand=num%10;
     num/=10;
     num=TenThousand*10000 + 1000*Thousand+ 100*Hundread + 10*Tens+Ones;
-    printf("%d %d %d %d %d %d \n",num,Ones,Tens,Hundread,Thousand,TenThousand);
-
-    if (Hundread==0)
+    printf("%d\n",num);
+    logic(num,Ones,Tens,Hundread,Thousand,TenThousand);
+}  
+    
+int main()
+{
+    while (1)
     {
-        check(Thousand, TenThousand);
-        printf(" Thousands ");
-        check(Hundread, 0);
-        check(Ones, Tens);
+        int I;
+        RPL();
+        printf("\nEnter 1 to Stop, anything else to continue: ");
+        scanf("%d", &I);
+        if (I==1) break;
     }
-    else{
-    check(Thousand, TenThousand);
-    printf(" Thousands ");
-    check(Hundread, 0);
-    printf(" Hundred ");
-    check(Ones, Tens);
-}
-    
-    
     
 }
