@@ -1,13 +1,19 @@
 #include <stdio.h>
-int main(){
-    float a,l,b,h;
-    printf("Enter Side of cube in meters: ");
-    scanf("%f", &a);
-    printf("Enter Length of cuboid in meters: ");
-    scanf("%f", &l);
-    printf("Enter Breath of cuboid in meters: ");
-    scanf("%f", &b);
-    printf("Enter Height of cuboid in meters: ");
-    scanf("%f", &h);
-    printf("Volume of cube is: %.2f m^3", a*a*a);
-    printf("Volume of Cuboid is: %.2f m^3", l*b*h);
+int main()
+{
+    int num, counter;
+    printf("Enter a Number: ");
+    scanf("%d", &num);
+    for (int cnum=1; cnum<=num; ++cnum)
+    {
+        counter=0;
+        for (int i=1; i<=cnum; ++i)
+        {
+            if (cnum%i==0) counter++;
+        }
+        if (counter==2) printf(" %d ", cnum);
+
+    }
+}
+
+

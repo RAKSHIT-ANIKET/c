@@ -15,10 +15,6 @@ int main(){
         R2= (b*(-1) -(pow(D,0.5)))/2*a;
         printf("Roots of QE are %.3f and %.3f", R1,R2);
     }
-    else
-    {
-        printf("Root does not exists");
-    }
-    
+    else printf("Root does not exists");  
 }
 
