@@ -5,11 +5,7 @@ int main() {
             printf(" ");
         }
         for (int j=1; j<=7; j++){
-            if (i==0 || i==6 )printf("*");
-            else {
-                if (j==1 || j==7)printf("*");
-                else printf(" ");
-            }
+            printf("*");
         }
         printf("\n");
     }    
