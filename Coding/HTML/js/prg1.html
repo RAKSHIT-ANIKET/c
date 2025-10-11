@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Radius Finder</title>
+        <link rel="icon" type="image/jpeg" href="logo.jpg"/>
+        </head>
+    <body>
+        <h1> This program will calculate circumference, radius and diameter :) lol</h1>
+        <div style="border:5px; background-color: rgb(178, 233, 236); height:70px; width:350px"> <label> Enter Radius: </label>
+        <input type="text" id="myRad"> <br>
+        <button id="mysubmit"> Submit</button>
+        <h2 id="output">  --- </h2>
+        </div>
+        <script>
+            const PI=3.14;
+            let radius, diameter, circumference, area;
+            document.getElementById("mysubmit").onclick=function(){
+                radius=document.getElementById("myRad").value;
+                radius=Number(radius);
+                diameter=2*radius;
+                circumference=2*PI*radius;
+                area=PI*radius**2;
+                document.getElementById("output").textContent = circumference,diameter,area;
+            }
+        </script>
+    </body>
+</html>
